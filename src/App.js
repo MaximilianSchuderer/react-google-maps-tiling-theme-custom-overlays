@@ -32,30 +32,7 @@ class App extends Component {
       this.calculateTiles();
     }
   };
-
-  createMapRequestModel = (hazardLayer, swlng, swlat, nelng, nelat, width, height, zoom) => {
-    let finalHazardLayer = hazardLayer;
-
-    if (this.state.mapReference.getZoom() <= 11) {
-      finalHazardLayer = hazardLayer + "_Overview";
-    }
-
-    let obj = {
-      hazardLayer: finalHazardLayer,
-      SouthWestLongitude: swlng,
-      SouthWestLatitude: swlat,
-      NorthEastLongitude: nelng,
-      NorthEastLatitude: nelat,
-      TileWidth: width,
-      TileHeight: height,
-      ZoomFactor: zoom,
-      CenterLongitude: this.state.mapReference.getCenter().lng(),
-      CenterLatitude: this.state.mapReference.getCenter().lat(),
-    };
-
-    return obj;
-  };
-
+  
   calculateTiles = async () => {
     let zoomFactor = this.state.mapReference.getZoom();
     let tileWidth = 360;
