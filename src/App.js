@@ -174,9 +174,9 @@ class App extends Component {
               onCenterChanged={this.onCenterChanged}
             >
               {this.state.tiles.map((tile) => (
-                <OverlayView className="overlay" mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET} bounds={tile.bounds}>
-                  <div className="overlayimg" style={{ backgroundColor: tile.color }}>
-                    <div className="labelcontainer">
+                <OverlayView mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET} bounds={tile.bounds}>
+                  <div className="OverlayImage" style={{ backgroundColor: tile.color }}>
+                    <div className="TimestampContainer">
                       <h2>{tile.text}</h2>
                     </div>
                   </div>
@@ -188,9 +188,7 @@ class App extends Component {
 
         <style jsx>
           {`
-            .labelcontainer {
-              display: block;
-              width: 50px;
+            .TimestampContainer {
               text-align: center;
               position: relative;
               top: 50%;
@@ -202,10 +200,7 @@ class App extends Component {
               width: 100%;
               height: 900px;
             }
-            .overlay {
-              border: none;
-            }
-            .overlayimg {
+            .OverlayImage {
               width: 100%;
               height: 100%;
               position: absolute;
